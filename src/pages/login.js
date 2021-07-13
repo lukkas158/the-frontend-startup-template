@@ -4,6 +4,13 @@ import { Link, useHistory } from "react-router-dom";
 import api from "~/services/api";
 import { userSelector } from "~/store/reducers/users";
 
+import styled from "styled-components";
+
+const Wrapper = styled.section`
+  padding: 4em;
+  background: papayawhip;
+`;
+
 export function Login(props) {
   const { isLogged } = useSelector(userSelector);
 
@@ -34,7 +41,7 @@ export function Login(props) {
     }
   }
   return (
-    <div>
+    <Wrapper>
       <h1> Login </h1>
       <form onSubmit={onSubmit}>
         <label> Email:</label>
@@ -53,10 +60,10 @@ export function Login(props) {
           Login
         </button>
         {error}
-        <a href="/login"> Forgot your password ?</a>
+        <a href="/login"> Forgot password</a>
         <Link to="/signup">Sign up</Link>
       </form>
-    </div>
+    </Wrapper>
   );
 }
 
